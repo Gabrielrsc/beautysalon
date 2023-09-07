@@ -1,6 +1,4 @@
-// Dom Document Object Model
-
-// Abre e fecha menu
+/*abre e fecha o meu ao clicar no icone: X ... */
 const nav = document.querySelector('#header nav')
 const toggle = document.querySelectorAll('nav .toggle')
 
@@ -10,6 +8,8 @@ for (const element of toggle) {
   })
 }
 
+/*Quando clicar em um item do menu esconder o menu */
+
 const links = document.querySelectorAll('nav ul li a')
 
 for (const link of links) {
@@ -18,28 +18,27 @@ for (const link of links) {
   })
 }
 
-/**Mudar header quando dar scroll */
+/*Mudar o header da pagina quando der scroll*/
 
 const header = document.querySelector('#header')
-const navHeigth = header.offsetHeight
+const navHeight = header.offsetHeight
 
 window.addEventListener('scroll', function () {
-  if (window.scrollY >= navHeigth) {
+  if (window.scrollY >= navHeight) {
     header.classList.add('scroll')
   } else {
-    //menor que a altura do header
     header.classList.remove('scroll')
   }
 })
 
-/**Testimonials Slider */
+/*Testimonils carousel slider swiper */
 const swiper = new Swiper('.swiper', {
-  slidePerView: 1,
+  slidesPerView: 1,
   pagination: {
     el: '.swiper-pagination'
   },
   mousewheel: true,
-  keyboard: true,
+  Keyboard: true,
   breakpoints: {
     767: {
       slidesPerView: 2,
@@ -48,7 +47,7 @@ const swiper = new Swiper('.swiper', {
   }
 })
 
-/**ScrollReveal Mostrar elemendos quando der scroll na página */
+/*ScrollREvel: Mostra elemendos quando der scroll na pagina */
 
 const scrollReveal = ScrollReveal({
   origin: 'top',
@@ -57,51 +56,19 @@ const scrollReveal = ScrollReveal({
   reset: true
 })
 
-scrollReveal.reveal(
-  `#home .text, #home .image,
-  #about .text, #about .image,
-  #services header, #services .card,
-  #testimonials header,#testimonials .testimonials,
-  #contact .text, #contact .links,
-  footer .brand, footer .social
-  
-  `,
-
+ScrollReveal().reveal(
+  '#home .image,#home .text,  #about .image, #about .text,  #services header, #services .card, #testimonials header, #testimonials .testimonials, #contact .text, contact .link, footer .brand, footer .social',
   { interval: 100 }
 )
 
-/* Botão voltar para o topo*/
+/*Botao para voltar para o topo */
 
 const backToTopButton = document.querySelector('.back-to-top')
+
 window.addEventListener('scroll', function () {
   if (window.scrollY >= 560) {
     backToTopButton.classList.add('show')
   } else {
     backToTopButton.classList.remove('show')
-  }
-})
-
-/**Ativar Menu da Pagina */
-const sections = document.querySelectorAll('main section[id]')
-window.addEventListener('scroll', function () {
-  const checkpoint = window.pageYOffset + (window.innerHeight / 8) * 4
-
-  for (const section of sections) {
-    const sectionTop = section.offsetTop
-    const sectionHeight = section.offsetHeight
-    const sectionId = section.getAttribute('id')
-
-    const checkpointStart = checkpoint >= sectionTop
-    const checkpointEnd = checkpoint <= sectionTop + sectionHeight
-
-    if (checkpointStart && checkpointEnd) {
-      document
-        .querySelector('nav ul li a[href*=' + sectionId + ']')
-        .classList.add('active')
-    } else {
-      document
-        .querySelector('nav ul li a[href*=' + sectionId + ']')
-        .classList.remove('active')
-    }
   }
 })
