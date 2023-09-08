@@ -18,7 +18,7 @@ Projeto desenvolvido na Mission: Origin da <nlw/> Together, o evento aconteceu e
 <br>
 
 <p align="center">
-  <img alt="projeto OriginSix" src="github/preview.png" width="100%">
+  <img alt="projeto OriginSix" src=".github/preview.png" width="100%">
 </p>
 
 ## 🚀 Tecnologias
